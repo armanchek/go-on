@@ -1,0 +1,17 @@
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	var mu sync.Mutex
+	mu.Lock()
+	fmt.Println("Locked")
+
+	mu.Lock()
+	fmt.Println("This will never be printed")
+
+	mu.Unlock()
+}
